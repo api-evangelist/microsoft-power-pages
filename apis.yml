@@ -1,0 +1,34 @@
+aid: microsoft-power-pages
+url: https://raw.githubusercontent.com/api-evangelist/microsoft-power-pages/refs/heads/main/apis.yml
+apis:
+  - aid: microsoft-power-pages:web-api
+    name: Power Pages Web API
+    tags:
+      - Web Portals
+      - Dataverse
+      - CRUD
+    image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    baseURL: https://{site}.powerappsportals.com/_api/
+    humanURL: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+    properties:
+      - url: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+        type: Documentation
+    description: >-
+      The Power Pages Web API provides CRUD operations on Dataverse tables
+      from Power Pages websites. It enables authenticated and anonymous
+      users to interact with business data through portal pages using
+      standard REST conventions with table permissions for security.
+common:
+  - type: Portal
+    url: https://make.powerpages.microsoft.com/
+  - type: Documentation
+    url: https://learn.microsoft.com/en-us/power-pages/
+  - type: Terms of Service
+    url: https://www.microsoft.com/en-us/legal/terms-of-use
+  - type: Privacy Policy
+    url: https://privacy.microsoft.com/en-us/privacystatement
+  - type: Support
+    url: https://support.microsoft.com/
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
