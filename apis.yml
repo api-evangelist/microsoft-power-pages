@@ -8,10 +8,10 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Web Portals
-  - Low-Code
   - Dataverse
+  - Low-Code
   - Microsoft
+  - Web Portals
 url: https://raw.githubusercontent.com/api-evangelist/microsoft-power-pages/refs/heads/main/apis.yml
 created: '2024-01-01'
 modified: '2026-03-16'
@@ -20,9 +20,9 @@ apis:
   - aid: microsoft-power-pages:web-api
     name: Power Pages Web API
     tags:
-      - Web Portals
-      - Dataverse
       - CRUD
+      - Dataverse
+      - Web Portals
     image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
     baseURL: https://{site}.powerappsportals.com/_api/
     humanURL: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
