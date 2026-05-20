@@ -37,6 +37,8 @@ apis:
       users to interact with business data through portal pages using
       standard REST conventions with table permissions for security.
 common:
+  - type: GitHubOrganization
+    url: https://github.com/microsoft
   - type: Portal
     url: https://make.powerpages.microsoft.com/
   - type: Website
