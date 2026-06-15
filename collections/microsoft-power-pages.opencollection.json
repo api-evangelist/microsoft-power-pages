@@ -1,0 +1,234 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Power Pages Web API",
+    "version": "9.4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": ".AspNet.ApplicationCookie",
+      "value": "{{.AspNet.ApplicationCookie}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve records from a Dataverse table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName",
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "accounts",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$apply",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fetchXml",
+                "value": "",
+                "type": "query",
+                "description": "URL-encoded FetchXML query."
+              }
+            ]
+          },
+          "docs": "Returns records from the table identified by its EntitySetName (e.g. `accounts`, `contacts`). OData system query options are supported."
+        },
+        {
+          "info": {
+            "name": "Get a count of records in the table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName/$count",
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a count of records in the table"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a record in a Dataverse table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName",
+            "headers": [
+              {
+                "name": "__RequestVerificationToken",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a record in a Dataverse table"
+        },
+        {
+          "info": {
+            "name": "Retrieve a specific record by primary key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName(:id)",
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific record by primary key"
+        },
+        {
+          "info": {
+            "name": "Update an existing record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName(:id)",
+            "headers": [
+              {
+                "name": "__RequestVerificationToken",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing record"
+        },
+        {
+          "info": {
+            "name": "Delete a record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName(:id)",
+            "headers": [
+              {
+                "name": "__RequestVerificationToken",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
