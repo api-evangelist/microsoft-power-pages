@@ -1,0 +1,18 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/microsoft-power-pages-openapi.yml
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - cookie
+schemes:
+- name: portalSession
+  type: apiKey
+  in: cookie
+  parameter: .AspNet.ApplicationCookie
+  description: Power Pages uses the host portal's authenticated session for the signed-in (or
+    anonymous) user. A CSRF token must also be supplied via the `__RequestVerificationToken`
+    request header for non-GET requests.
+  sources:
+  - openapi/microsoft-power-pages-openapi.yml

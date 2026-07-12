@@ -37,6 +37,12 @@ apis:
       users to interact with business data through portal pages using
       standard REST conventions with table permissions for security.
 common:
+  - type: VulnerabilityDisclosure
+    url: security/microsoft-power-pages-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/microsoft-power-pages-domain-security.yml
+  - type: Authentication
+    url: authentication/microsoft-power-pages-authentication.yml
   - type: GitHubOrganization
     url: https://github.com/microsoft
   - type: Portal
@@ -55,6 +61,8 @@ common:
     url: https://support.microsoft.com/
   - type: Community
     url: https://community.powerplatform.com/forums/thread/?threadid=4f8c3d6b-df78-ef11-a317-7c1e522703d5
+  - url: https://www.microsoft.com/en-us/power-platform/blog/power-pages/feed/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
