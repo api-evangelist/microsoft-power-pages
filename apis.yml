@@ -37,6 +37,8 @@ apis:
       users to interact with business data through portal pages using
       standard REST conventions with table permissions for security.
 common:
+  - type: AgenticAccess
+    url: agentic-access/microsoft-power-pages-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/microsoft-power-pages-vulnerability-disclosure.yml
   - type: DomainSecurity
