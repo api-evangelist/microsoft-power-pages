@@ -1,0 +1,146 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Power Pages Web Records API
+  description: The Power Pages portals Web API exposes CRUD operations against Microsoft Dataverse tables from inside a Power Pages site. Operations follow OData v4 conventions and are case sensitive. Authentication is handled by the host portal session and all write/modify requests must include a CSRF token. The base URL pattern is https://{site}.powerappsportals.com/_api/.
+  version: '9.4'
+servers:
+- url: https://{site}.powerappsportals.com/_api
+  description: Power Pages portal Web API base URL
+  variables:
+    site:
+      default: contoso
+      description: The Power Pages site subdomain.
+security:
+- portalSession: []
+tags:
+- name: Records
+paths:
+  /{entitySetName}:
+    post:
+      tags:
+      - Records
+      summary: Create a record in a Dataverse table
+      operationId: createRecord
+      parameters:
+      - name: entitySetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: __RequestVerificationToken
+        in: header
+        required: true
+        schema:
+          type: string
+        description: CSRF token required for write operations.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Record created (no content)
+        '201':
+          description: Record created
+  /{entitySetName}({id}):
+    get:
+      tags:
+      - Records
+      summary: Retrieve a specific record by primary key
+      operationId: getRecord
+      parameters:
+      - name: entitySetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: $select
+        in: query
+        schema:
+          type: string
+      - name: $expand
+        in: query
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Record
+          content:
+            application/json:
+              schema:
+                type: object
+        '404':
+          description: Not found
+    patch:
+      tags:
+      - Records
+      summary: Update an existing record
+      operationId: updateRecord
+      parameters:
+      - name: entitySetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: __RequestVerificationToken
+        in: header
+        required: true
+        schema:
+          type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Record updated
+    delete:
+      tags:
+      - Records
+      summary: Delete a record
+      operationId: deleteRecord
+      parameters:
+      - name: entitySetName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+      - name: __RequestVerificationToken
+        in: header
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Record deleted
+components:
+  securitySchemes:
+    portalSession:
+      type: apiKey
+      in: cookie
+      name: .AspNet.ApplicationCookie
+      description: Power Pages uses the host portal's authenticated session for the signed-in (or anonymous) user. A CSRF token must also be supplied via the `__RequestVerificationToken` request header for non-GET requests.
+x-generated-from: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+x-generated-by: claude-genwave10-08-2026-05-23
