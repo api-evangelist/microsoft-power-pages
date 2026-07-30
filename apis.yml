@@ -6,7 +6,20 @@ description: >-
   websites. It provides APIs for CRUD operations on Dataverse tables from
   portal pages.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/microsoft-power-pages.png
 tags:
   - Dataverse
   - Low-Code
@@ -17,25 +30,44 @@ created: '2024-01-01'
 modified: '2026-04-28'
 specificationVersion: '0.19'
 apis:
-  - aid: microsoft-power-pages:web-api
-    name: Power Pages Web API
-    tags:
-      - CRUD
-      - Dataverse
-      - Web Portals
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    baseURL: https://{site}.powerappsportals.com/_api/
-    humanURL: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
-    properties:
-      - url: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
-        type: Documentation
-      - url: https://learn.microsoft.com/en-us/power-pages/configure/read-operations
-        type: GettingStarted
-    description: >-
-      The Power Pages Web API provides CRUD operations on Dataverse tables
-      from Power Pages websites. It enables authenticated and anonymous
-      users to interact with business data through portal pages using
-      standard REST conventions with table permissions for security.
+- aid: microsoft-power-pages:web-api
+  name: Power Pages Web API
+  tags:
+  - CRUD
+  - Dataverse
+  - Web Portals
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  baseURL: https://{site}.powerappsportals.com/_api/
+  humanURL: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+  properties:
+  - url: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+    type: Documentation
+  - url: https://learn.microsoft.com/en-us/power-pages/configure/read-operations
+    type: GettingStarted
+  description: >-
+    The Power Pages Web API provides CRUD operations on Dataverse tables from Power Pages websites. It
+    enables authenticated and anonymous users to interact with business data through portal pages using
+    standard REST conventions with table permissions for security.
+- aid: microsoft-power-pages:microsoft-power-pages-records-api
+  name: Microsoft Power Pages Records API
+  description: The Records API from Microsoft Power Pages — 2 operation(s) for records.
+  humanURL: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+  baseURL: https://{site}.powerappsportals.com/_api/
+  tags:
+  - Records
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-power-pages-records-api-openapi.yml
+- aid: microsoft-power-pages:microsoft-power-pages-tables-api
+  name: Microsoft Power Pages Tables API
+  description: The Tables API from Microsoft Power Pages — 2 operation(s) for tables.
+  humanURL: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+  baseURL: https://{site}.powerappsportals.com/_api/
+  tags:
+  - Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/microsoft-power-pages-tables-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/microsoft-power-pages-agentic-access.yml
