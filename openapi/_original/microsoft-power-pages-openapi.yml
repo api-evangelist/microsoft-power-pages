@@ -1,0 +1,205 @@
+openapi: 3.1.0
+info:
+  title: Microsoft Power Pages Web API
+  description: >-
+    The Power Pages portals Web API exposes CRUD operations against
+    Microsoft Dataverse tables from inside a Power Pages site. Operations
+    follow OData v4 conventions and are case sensitive. Authentication is
+    handled by the host portal session and all write/modify requests must
+    include a CSRF token. The base URL pattern is
+    https://{site}.powerappsportals.com/_api/.
+  version: "9.4"
+x-generated-from: https://learn.microsoft.com/en-us/power-pages/configure/web-api-overview
+x-generated-by: claude-genwave10-08-2026-05-23
+servers:
+  - url: https://{site}.powerappsportals.com/_api
+    description: Power Pages portal Web API base URL
+    variables:
+      site:
+        default: contoso
+        description: The Power Pages site subdomain.
+security:
+  - portalSession: []
+tags:
+  - name: Tables
+  - name: Records
+paths:
+  /{entitySetName}:
+    get:
+      tags: [Tables]
+      summary: Retrieve records from a Dataverse table
+      description: >-
+        Returns records from the table identified by its EntitySetName (e.g.
+        `accounts`, `contacts`). OData system query options are supported.
+      operationId: listRecords
+      parameters:
+        - name: entitySetName
+          in: path
+          required: true
+          schema: { type: string }
+          example: accounts
+        - name: $select
+          in: query
+          schema: { type: string }
+        - name: $filter
+          in: query
+          schema: { type: string }
+        - name: $orderby
+          in: query
+          schema: { type: string }
+        - name: $top
+          in: query
+          schema: { type: integer }
+        - name: $expand
+          in: query
+          schema: { type: string }
+        - name: $count
+          in: query
+          schema: { type: boolean }
+        - name: $apply
+          in: query
+          schema: { type: string }
+        - name: fetchXml
+          in: query
+          schema: { type: string }
+          description: URL-encoded FetchXML query.
+      responses:
+        '200':
+          description: Collection of records
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RecordCollection'
+    post:
+      tags: [Records]
+      summary: Create a record in a Dataverse table
+      operationId: createRecord
+      parameters:
+        - name: entitySetName
+          in: path
+          required: true
+          schema: { type: string }
+        - name: __RequestVerificationToken
+          in: header
+          required: true
+          schema: { type: string }
+          description: CSRF token required for write operations.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        '204':
+          description: Record created (no content)
+        '201':
+          description: Record created
+  /{entitySetName}({id}):
+    get:
+      tags: [Records]
+      summary: Retrieve a specific record by primary key
+      operationId: getRecord
+      parameters:
+        - name: entitySetName
+          in: path
+          required: true
+          schema: { type: string }
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: $select
+          in: query
+          schema: { type: string }
+        - name: $expand
+          in: query
+          schema: { type: string }
+      responses:
+        '200':
+          description: Record
+          content:
+            application/json:
+              schema: { type: object }
+        '404':
+          description: Not found
+    patch:
+      tags: [Records]
+      summary: Update an existing record
+      operationId: updateRecord
+      parameters:
+        - name: entitySetName
+          in: path
+          required: true
+          schema: { type: string }
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: __RequestVerificationToken
+          in: header
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '204':
+          description: Record updated
+    delete:
+      tags: [Records]
+      summary: Delete a record
+      operationId: deleteRecord
+      parameters:
+        - name: entitySetName
+          in: path
+          required: true
+          schema: { type: string }
+        - name: id
+          in: path
+          required: true
+          schema: { type: string, format: uuid }
+        - name: __RequestVerificationToken
+          in: header
+          required: true
+          schema: { type: string }
+      responses:
+        '204':
+          description: Record deleted
+  /{entitySetName}/$count:
+    get:
+      tags: [Tables]
+      summary: Get a count of records in the table
+      operationId: countRecords
+      parameters:
+        - name: entitySetName
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: Count as plain text
+          content:
+            text/plain:
+              schema: { type: integer }
+components:
+  securitySchemes:
+    portalSession:
+      type: apiKey
+      in: cookie
+      name: .AspNet.ApplicationCookie
+      description: >-
+        Power Pages uses the host portal's authenticated session for the
+        signed-in (or anonymous) user. A CSRF token must also be supplied via
+        the `__RequestVerificationToken` request header for non-GET requests.
+  schemas:
+    RecordCollection:
+      type: object
+      properties:
+        "@odata.context": { type: string }
+        "@odata.count": { type: integer }
+        value:
+          type: array
+          items: { type: object }

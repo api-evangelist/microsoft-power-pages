@@ -1,0 +1,16 @@
+{
+  "provider": "microsoft-power-pages",
+  "sources": [
+    "microsoft-power-pages-records-api-openapi.yml",
+    "microsoft-power-pages-tables-api-openapi.yml"
+  ],
+  "outputs": [
+    "microsoft-power-pages-records-api-openapi.yml",
+    "microsoft-power-pages-tables-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
