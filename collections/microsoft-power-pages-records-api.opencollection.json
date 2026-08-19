@@ -1,0 +1,149 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Power Pages Web Records API",
+    "version": "9.4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": ".AspNet.ApplicationCookie",
+      "value": "{{.AspNet.ApplicationCookie}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Records",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a record in a Dataverse table",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName",
+            "headers": [
+              {
+                "name": "__RequestVerificationToken",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a record in a Dataverse table"
+        },
+        {
+          "info": {
+            "name": "Retrieve a specific record by primary key",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName(:id)",
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Retrieve a specific record by primary key"
+        },
+        {
+          "info": {
+            "name": "Update an existing record",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName(:id)",
+            "headers": [
+              {
+                "name": "__RequestVerificationToken",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update an existing record"
+        },
+        {
+          "info": {
+            "name": "Delete a record",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName(:id)",
+            "headers": [
+              {
+                "name": "__RequestVerificationToken",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a record"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

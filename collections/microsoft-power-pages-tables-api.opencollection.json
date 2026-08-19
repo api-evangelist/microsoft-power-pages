@@ -1,0 +1,103 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Microsoft Power Pages Web Records Tables API",
+    "version": "9.4"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": ".AspNet.ApplicationCookie",
+      "value": "{{.AspNet.ApplicationCookie}}",
+      "placement": "query"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve records from a Dataverse table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName",
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "accounts",
+                "type": "path"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$orderby",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$count",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "$apply",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fetchXml",
+                "value": "",
+                "type": "query",
+                "description": "URL-encoded FetchXML query."
+              }
+            ]
+          },
+          "docs": "Returns records from the table identified by its EntitySetName (e.g. `accounts`, `contacts`). OData system query options are supported."
+        },
+        {
+          "info": {
+            "name": "Get a count of records in the table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{site}.powerappsportals.com/_api/:entitySetName/$count",
+            "params": [
+              {
+                "name": "entitySetName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a count of records in the table"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
