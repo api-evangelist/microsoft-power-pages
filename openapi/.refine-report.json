@@ -1,8 +1,7 @@
 {
   "provider": "microsoft-power-pages",
   "sources": [
-    "microsoft-power-pages-records-api-openapi.yml",
-    "microsoft-power-pages-tables-api-openapi.yml"
+    "_ae-authored/microsoft-power-pages-openapi.yml"
   ],
   "outputs": [
     "microsoft-power-pages-records-api-openapi.yml",
@@ -11,6 +10,13 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "microsoft-power-pages-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "microsoft-power-pages-records-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "microsoft-power-pages-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

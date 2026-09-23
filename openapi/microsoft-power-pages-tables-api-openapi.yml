@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Microsoft Power Pages Web Records Tables API
+  title: Microsoft Power Pages Web Tables API
   description: The Power Pages portals Web API exposes CRUD operations against Microsoft Dataverse tables from inside a Power Pages site. Operations follow OData v4 conventions and are case sensitive. Authentication is handled by the host portal session and all write/modify requests must include a CSRF token. The base URL pattern is https://{site}.powerappsportals.com/_api/.
   version: '9.4'
 servers:
