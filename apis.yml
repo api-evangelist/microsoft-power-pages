@@ -83,6 +83,12 @@ apis:
   - type: OpenAPI
     url: openapi/microsoft-power-pages-tables-api-openapi.yml
 common:
+  - type: Plans
+    url: plans/microsoft-power-pages-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/microsoft-power-pages-rate-limits.yml
+  - type: FinOps
+    url: finops/microsoft-power-pages-finops.yml
   - type: AgenticAccess
     url: agentic-access/microsoft-power-pages-agentic-access.yml
   - type: VulnerabilityDisclosure
